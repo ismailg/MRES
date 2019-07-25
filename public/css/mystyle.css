@@ -1,0 +1,340 @@
+body {
+  font-family: verdana, sans-serif;
+  font-size: 14pt;
+}
+
+.wrapper-for-all-content {
+  width: 80%;
+  max-width: 1240px;
+  min-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.wrapper {
+  color: black;
+}
+.humanPlay,
+.computerPlay {
+  max-width: 80%;
+  max-height: auto;
+}
+.grid-container {
+  display: grid;
+  grid-gap: 8px;
+  background-color: grey;
+  padding: 8px;
+  margin: 10px;
+  grid-auto-columns: 1fr;
+  min-height: 555px;
+}
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.99);
+  vertical-align: middle;
+  text-align: center;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bold;
+}
+.item1 {
+  grid-column: 1 / span 4;
+  grid-row: 1;
+}
+.item2 {
+  grid-column: 5;
+  grid-row: 1;
+}
+.item3 {
+  grid-column: 6;
+  grid-row: 1;
+}
+.item4 {
+  grid-column: 7;
+  grid-row: 1;
+}
+.item5 {
+  grid-column: 8 / span 4;
+  grid-row: 1;
+}
+.weapons {
+  grid-column: 1 / span 4;
+  grid-row: 2;
+}
+.weapons > div {
+  display: inline-block;
+}
+.wins {
+  grid-column: 5;
+  grid-row: 2;
+  color: green;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ties {
+  grid-column: 6;
+  grid-row: 2;
+  color: grey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.losses {
+  grid-column: 7;
+  grid-row: 2;
+  color: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.item10 {
+  grid-column: 8 / span 4;
+  grid-row: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.item11 {
+  grid-column: 1 / span 4;
+  grid-row: 3 / span 4;
+}
+.display {
+  grid-column: 5 / span 3;
+  grid-row: 3 / span 4;
+  position: relative;
+  min-height: 420px;
+}
+.item13 {
+  grid-column: 8 / span 4;
+  grid-row: 3 / span 4;
+}
+/* ************** weapons Buttons STYLING ****************** */
+
+.weapons input {
+  font-size: 0;
+  border: none;
+  margin: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: none;
+}
+
+.rock {
+  background-image: url("../pics/rockIcon.jpg");
+}
+
+.paper {
+  background-image: url("../pics/paperIcon.jpg");
+}
+
+.scissors {
+  background-image: url("../pics/scissorsIcon.jpg");
+}
+
+.fire {
+  background-image: url("../pics/fireIcon.jpg");
+}
+
+.water {
+  background-image: url("../pics/waterIcon.jpg");
+}
+
+.grass {
+  background-image: url("../pics/grassIcon.jpg");
+}
+
+.one {
+  background-image: url("../pics/oneIcon.jpg");
+}
+
+.two {
+  background-image: url("../pics/twoIcon.jpg");
+}
+
+.three {
+  background-image: url("../pics/threeIcon.jpg");
+}
+.four {
+  background-image: url("../pics/fourIcon.jpg");
+}
+
+.five {
+  background-image: url("../pics/fiveIcon.jpg");
+}
+
+.tools-cc.left,
+.tools-cc.right,
+.tools-cc.center {
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.tools-cc.left {
+  background-image: url("../pics/left.jpg");
+}
+.tools-cc.right {
+  background-image: url("../pics/right.jpg");
+}
+.tools-cc.center {
+  background-image: url("../pics/center.jpg");
+}
+
+.weapons input:active + .tools-cc {
+  opacity: 0.9;
+}
+.weapons input:click + .tools-cc {
+  -webkit-filter: none;
+  -moz-filter: none;
+  filter: none;
+}
+
+.tools-cc {
+  cursor: pointer;
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: inline-block;
+  width: 45px;
+  height: 30px;
+  padding: 10px;
+  -webkit-transition: all 100ms ease-in;
+  -moz-transition: all 100ms ease-in;
+  transition: all 100ms ease-in;
+  -webkit-filter: brightness(1.8) grayscale(1) opacity(0.7);
+  -moz-filter: brightness(1.8) grayscale(1) opacity(0.7);
+  filter: brightness(1.8) grayscale(1) opacity(0.7);
+}
+
+.tools3-cc {
+  cursor: pointer;
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  padding: 8px;
+  -webkit-transition: all 100ms ease-in;
+  -moz-transition: all 100ms ease-in;
+  transition: all 100ms ease-in;
+  -webkit-filter: brightness(1.8) grayscale(1) opacity(0.7);
+  -moz-filter: brightness(1.8) grayscale(1) opacity(0.7);
+  filter: brightness(1.8) grayscale(1) opacity(0.7);
+}
+
+.tools-cc:hover {
+  -webkit-filter: brightness(1.2) grayscale(0.5) opacity(0.9);
+  -moz-filter: brightness(1.2) grayscale(0.5) opacity(0.9);
+  filter: brightness(1.2) grayscale(0.5) opacity(0.9);
+}
+
+.tools3-cc:hover {
+  -webkit-filter: brightness(1.2) grayscale(0.5) opacity(0.9);
+  -moz-filter: brightness(1.2) grayscale(0.5) opacity(0.9);
+  filter: brightness(1.2) grayscale(0.5) opacity(0.9);
+}
+
+.footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 0.2rem;
+  background-color: #efefef;
+  text-align: center;
+}
+
+.outcome-icon {
+  width: 128px;
+  display: block;
+  margin: 10px auto 0 auto;
+}
+
+.red-flashing-text {
+  animation: blinker 1s linear infinite;
+  color: red;
+}
+
+.black-flashing-text {
+  animation: blinker 1s linear infinite;
+  color: black;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+
+.round-feedback-list {
+  max-height: 200px;
+  width: calc(100% - 20px);
+  overflow-y: scroll;
+  position: absolute;
+  bottom: 0;
+}
+
+.round-feedback-item {
+  height: 40px;
+  width: 100%;
+  border-bottom: 1px solid #333;
+  margin: 10px 0;
+  padding-bottom: 10px;
+}
+
+.round-feedback-item-title {
+  width: 56%;
+  display: inline-block;
+  text-align: center;
+  font-weight: normal;
+}
+
+.round-feedback-item.last .round-feedback-item-title {
+  font-weight: bold;
+  font-size: 120%;
+}
+
+.round-feedback-item-icon {
+  display: inline-block;
+  width: 20%;
+  position: relative;
+}
+
+.round-feedback-item-icon img {
+  width: 32px;
+  height: 32px;
+  display: inline-block;
+  margin-bottom: -10px;
+}
+.round-feedback-item-icon.loss img {
+  opacity: 0.5;
+}
+
+.round-feedback-item-icon.win:before {
+  content: "";
+  width: 24px;
+  height: 24px;
+  display: block;
+  position: absolute;
+  background: url("../pics/win-round-result.png");
+}
+
+.round-feedback-item-icon.loss:before {
+  content: "";
+  width: 24px;
+  height: 24px;
+  display: block;
+  position: absolute;
+  background: url("../pics/loss-round-result.png");
+}
+.round-feedback-item-icon:first-child {
+  text-align: left;
+}
+.round-feedback-item-icon:last-child {
+  text-align: right;
+}
+.round-feedback-item-icon:first-child:before {
+  right: 0;
+}
+.round-feedback-item-icon:last-child:before {
+  left: 0;
+}

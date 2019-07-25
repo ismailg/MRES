@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+{{> header}}
+<body id="game">
+<link rel="stylesheet" href="css/mystyle.css">
+<h4 align="center" id="roundNumber"> Round : 1 </h4>
+<div class="grid-container">
+    <div class="grid-item item1" id="username">{{username}}</div>
+    <div class="grid-item item2">Wins</div>
+    <div class="grid-item item3">Ties</div>
+    <div class="grid-item item4">Losses</div>
+    <div class="grid-item item5">Computer Opponent</div>
+    <div class="grid-item weapons">
+        <div>
+            <input id="rock" type="button" name="weapon" value="rock"/>
+            <label class="tools-cc rock" for="rock"></label>
+        </div>
+        <div>
+            <input id="paper" type="button" name="weapon" value="paper"/>
+            <label class="tools-cc paper" for="paper"></label>
+        </div>
+        <div>
+            <input id="scissors" type="button" name="weapon" value="scissors"/>
+            <label class="tools-cc scissors" for="scissors"></label>
+        </div>
+    </div>
+    <div id="wins" class="grid-item wins">0</div>
+    <div id="ties" class="grid-item ties">0</div>
+    <div id="losses" class="grid-item losses">0</div>
+    <div class="grid-item item10">
+        <svg id="oppColor" height="50" width="50">
+            <circle cx="25" cy="20" r="18" stroke="black" stroke-width="3" fill={{colorfill}} />
+        </svg>
+    </div>
+    <div class="grid-item item11">
+        <br/>
+        <br/>
+        <img id="humanPlay" class="img" src="rock.jpg">
+    </div>
+    <div class="grid-item display">
+        <br/>
+        <div class="info"></div>
+    </div>
+    <div class="grid-item item13">
+        <img id="computerPlay" class="img" src="Rrock.jpg">
+    </div>
+</div>
+<br/>
+<!-- <button type="button">Start New Game!</button>
+<button type="button">Exit and Save</button> -->
+
+<div class="footer"> {{>footer}} </div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/libs/jquery-3.3.1.min.js"></script>
+<script src="/js/client.js"></script>
+
+</body>
+</html>

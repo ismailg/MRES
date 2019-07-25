@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+{{> header}}
+<body id="game">
+<link rel="stylesheet" href="css/mystyle.css">
+<h4 align="center" id="roundNumber2"> Round : 1 </h4>
+<div class="grid-container">
+    <div class="grid-item item1" id="username">{{username}}</div>
+    <div class="grid-item item2">Wins</div>
+    <div class="grid-item item3">Ties</div>
+    <div class="grid-item item4">Losses</div>
+    <div class="grid-item item5">Computer Opponent</div>
+    <div class="grid-item weapons">
+        <div>
+            <input id="fire" type="button" name="weapon" value="fire"/>
+            <label class="tools-cc fire" for="fire"></label>
+        </div>
+        <div>
+            <input id="water" type="button" name="weapon" value="water"/>
+            <label class="tools-cc water" for="water"></label>
+        </div>
+        <div>
+            <input id="grass" type="button" name="weapon" value="grass"/>
+            <label class="tools-cc grass" for="grass"></label>
+        </div>
+    </div>
+    <div id="wins" class="grid-item wins">0</div>
+    <div id="ties" class="grid-item ties">0</div>
+    <div id="losses" class="grid-item losses">0</div>
+    <div class="grid-item item10">
+        <svg id="oppColor" height="50" width="50">
+            <circle cx="25" cy="20" r="18" stroke="black" stroke-width="3" fill={{colorfill}} />
+        </svg>
+    </div>
+    <div class="grid-item item11">
+        <img id="humanPlay" class="img" src="fire.jpg">
+    </div>
+    <div class="grid-item display">
+        <br/>
+        <div class="info"></div>
+    </div>
+    <div class="grid-item item13">
+        <img id="computerPlay" class="img" src="fire.jpg">
+    </div>
+</div>
+<br/>
+<!-- <button type="button">Start New Game!</button>
+<button type="button">Exit and Save</button> -->
+
+<div class="footer"> {{>footer}} </div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/libs/jquery-3.3.1.min.js"></script>
+<script src="/js/client.js"></script>
+
+</body>
+</html>

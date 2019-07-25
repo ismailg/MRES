@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  {{>header}}
+  <body>
+                    <!-- STYLING THE PAGE  -->
+
+    <style>
+
+      body {
+        position: relative;
+        margin: 0;
+        padding-bottom: 6rem;
+        min-height: 100%;
+      }
+      .text {
+        background-color: rgba(255, 255, 255, 0.90);
+        width: auto;
+        border: 5px solid black;
+        padding: 25px;
+        margin: 20px;
+      }
+      .text img {
+        max-width: 66%;
+        max-height: auto;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .wrapper {
+        text-align: center;
+      }
+      .button {
+        /* position: absolute; */
+        background: lightgrey;
+        padding: 0.7em;
+        padding: 25px;
+        margin: 20px;
+        width: 150px;
+        border: 0;
+        /* float : right; */
+        display: inline-block;
+      }
+      .button:hover {
+        background: gold;
+      }
+      .footer {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        padding: 0.2rem;
+        background-color: #efefef;
+        text-align: center;
+        }
+
+</style>
+
+          <!-- HTML for the Instructions 2 page  -->
+
+    <div class="text">You are about to play the third game. You are the "Human" player on the left, and you can select a number from 1 to 5 by clicking on
+      one of the icons. The computer will select a number of its choice as well and the results will be displayed for each round. The rules of the game are explained in the picture below.
+      You win if you select a number that is exactly equal to the computer's chocie + 1. Except when the number chosen be either you or the computer is 5; in this case the winning number is 1.
+      If the two numbers chosen are not consecutive, then this is considered a tie. Your task in this game is to win as many points as possible against the computer.
+    <br/>
+    <br/>
+    <img id="game3Rules" class="img" src="game3Rules.jpg">
+    <br/>
+    <br/>
+      This game will also have two phases. The first phase is for getting familiar with the game interface, and will consist of 10 trial rounds.
+      After the end of this practice phase, you will be alerted to the start of the game and the scores will be reinitiliased at 0. You will play a total of XXX rounds of this game.
+      Your computer opponent's choices in the second phase of the game are not random. They rely on rules that if uncovered can give you an edge in this game.
+    </div>
+    <div class="wrapper">
+      <button class="button" id="instructions3"> Proceed to Game </button>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/libs/jquery-3.3.1.min.js"></script>
+    <script>
+    $('#instructions3').click(function() {
+      window.location.href ="/game3";
+    });
+    </script>
+    <div class="footer"> {{>footer}} </div>
+  </body>
+
+</html>

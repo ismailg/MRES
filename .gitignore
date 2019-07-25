@@ -1,0 +1,6 @@
+server/node_modules/
+server/server.log
+server/gameHistory
+server/data/
+server/room_data/
+.DS_store

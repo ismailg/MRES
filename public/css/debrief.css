@@ -1,0 +1,103 @@
+.slidecontainer {
+  width: auto;
+  background-color: rgba(255, 255, 255, 0.9);
+  width: auto;
+  border: 5px solid black;
+  padding: 50px;
+  margin: 40px;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 90%;
+  height: 15px;
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #4caf50;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #4caf50;
+  cursor: pointer;
+}
+
+.feedbackinput {
+  height: 100px;
+  width: 90%;
+}
+
+.inputTest {
+  height: 15px;
+  width: 10%;
+}
+
+.inputID {
+  height: 15px;
+  width: 15%;
+}
+
+.styled-select {
+  background: url(http://i62.tinypic.com/15xvbd5.png) no-repeat 96% 0;
+  height: 29px;
+  overflow: hidden;
+  width: 200px;
+}
+
+.styled-select:hover {
+  background-color: gold;
+}
+
+.styled-select select {
+  background: transparent;
+  border: none;
+  font-size: 14px;
+  height: 29px;
+  padding: 5px; /* If you add too much padding here, the options won't show in IE */
+  width: 228px;
+}
+
+.semi-square {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.grey {
+  background-color: lightGrey;
+}
+
+/*video {
+  width: 70%;
+  left: 15%;
+  z-index: 10;
+  position: fixed;
+  top: 20%;
+}*/
+
+video{
+  width: 100%;
+}
+
+.blocker{
+  background-color: rgb(0, 0, 0);
+}

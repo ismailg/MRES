@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="socket.io/socket.io.js"></script>
+  <script src="js/libs/jquery-3.3.1.min.js"></script>
+  <script src="js/libs/jquery.modal.min.js"></script>
+  <script src="js/global.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title></title>
+  <h1 id="pageTitle" align="center">Outsmart your opponent</h1>
+
+  <link rel="stylesheet" href="css/jquery.modal.min.css">
+  <link rel="stylesheet" href="css/form.css">
+  <link rel="stylesheet" href="css/mystyle.css">
+  <link rel="stylesheet" href="css/instructions.css">
+  <link rel="stylesheet" href="css/debrief.css">
+</head>
+
+<body>
+
+
+
+  <!-- form -->
+
+
+  <div id="form-div">
+    <h2 id="userForm" align="center">Prolific ID</h2>
+
+    <!-- Ask for Prolific ID  -->
+    <div class="slidecontainer">
+      <h4> Please enter your PROLIFIC ID</h4>
+      <input id="prolificIDinput" type="text" class="inputID">
+    </div>
+    <p>
+      <div class="wrapper">
+        <p hidden style="color:red;" id="userFormErrorMsg">Please enter your ID and submit again!</font>
+        </p>
+        <button class="button" id="user-data-submit">Submit</button>
+      </div>
+    </p>
+  </div>
+
+  <!-- HTML for the general Instructions page  -->
+
+  <div id="instructions0-div" style="display: none;">
+    <h2 id="instruct0H" align="center">Instructions</h2>
+    <div class="text">
+      <h1>Instructions</h1>
+      <p>
+        In this experiment, you will play three different games against the <strong>same</strong> computer opponent.
+        Each game will consist of 50 rounds. In each round, you and your opponent will need to choose an action, and
+        then the winner of the round will be decided. <strong> Your opponent can't cheat </strong>. Just like you, your
+        opponent will not know your action before they deide on their own action. Your opponent will have a strategy
+        that tries to beat you in order to maximise its wins. Your goal is the same as that of your opponent: choose
+        actions that will beat your opponent and maximise your wins.
+      </p>
+      <p>
+        The first game is the classic game of Rock/Paper/Scissors. The second game is called Fire/Water/Grass. The third
+        game is called the Number Game. Each game is different and the rules will be explained to you at the beginning
+        of the game. In each game, you can choose your action by clicking on the icon corresponding to the action you
+        want to choose. Simultaneously, your opponent will choose their action. After choosing your action, you may have
+        to wait for your opponent to make their choice. After both of you have chosen your actions, you will be informed
+        of the outcome of the rounds, and you can then proceed to the next round, or to the next game. After each game,
+        you will be informed of your performance in that game.
+      </p>
+      <p>
+        Your score in each game will be the difference between the rounds that you won and the rounds that you lost.
+        Rounds which were ties don't count in your score. So, in each game, you can win points by choosing an action
+        that beats the computer's choice, but you can also lose points if your opponent's choice beats your chosen
+        action.
+      </p>
+      <p>
+        If your total score at the end of the three games is positive, then you will be paid a bonus on top of the flat
+        rate. This bonus is calculated such that each point in your final score is worth &pound; 0.02 (2 pence). If your
+        total score is equal to or less than 0, you will be only be paid the flat rate. Negative points do not mean you
+        will be paid less than the flat rate. After the three games have been played, we will ask you a few brief
+        questions about your experience.
+      </p>
+      <p>
+        Good luck!
+      </p>
+    </div>
+    <div class="wrapper">
+      <button class="button" id="instructions0"> Next </button>
+    </div>
+  </div>
+
+
+  <!-- HTML for the Instructions game 1 page  -->
+
+  <div id="instructions1-div" style="display: none;">
+    <h2 id="instruct1H" align="center">Instructions for Game 1</h2>
+    <div class="text">
+      <p>You are about to start playing the first game of Rock/Paper/Scissors. You are the player on the left, and you
+        can select an action ("weapon") by clicking on one of the 3 icons representing rock, paper or scissors. Your
+        opponent on the right will simultaneously select an action ("weapon") of its choice, without knowing your chosen
+        action on that round. After both of you have made your choice, the outcome of the round will be displayed. You
+        can then choose your next action, until the end of the game after 50 rounds. The rules of the game are that rock
+        beats scissors (a rock blunts scissors), paper beats rock (paper can wrap around a rock), and scissors beats
+        paper (scissors cut through paper). This is also explained in the picture below. If you choose the same actions,
+        it is a tie and none of you will gain any points. Your task in this game is choose actions that beat the action
+        of your opponent and win as many points as possible.</p>
+      <p>
+        <img id="gameRules" class="img" src="pics/RPS_rules.png" width=50%>
+      </p>
+      <p>
+        You will play a total of 50 rounds of this game. Your score will be calculated at the end of the 50 rounds by
+        substracting the number of winning rounds from the number of losing rounds. Ties do not count in this.
+    </div>
+    <div class="wrapper">
+      <button class="button" id="instructions1"> Proceed </button>
+    </div>
+  </div>
+
+  <!-- Test Instruct 1 -->
+
+  <div id="test1-div" style="display: none;">
+    <h2 id="test1" align="center">Please Answer the following questions to proceed to the first game</h2>
+
+    <div class="slidecontainer">
+      <h4> How many rounds will be played in each game? </h4>
+      <input id="q1" type="number" class="inputTest" required=true>
+    </div>
+
+    <div class="slidecontainer">
+      <h4> Which action beats "rock"?</h4>
+      <div class="styled-select grey semi-square">
+        <select id="q2" required=true>
+          <option value="rock">rock</option>
+          <option value="paper">paper</option>
+          <option value="scissors">scissors</option>
+        </select>
+      </div>
+      <!-- input id="q2" type="text" class="inputTest2" -->
+    </div>
+
+    <div class="slidecontainer">
+      <h4>If you think your opponent will play paper, what action should you choose?</h4>
+      <div class="styled-select grey semi-square">
+        <select id="q3" required=true>
+          <option value="rock">rock</option>
+          <option value="paper">paper</option>
+          <option value="scissors">scissors</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="wrapper">
+      <p hidden style="color:red;" id="errorMsg">Incorrect response. Please check your answers and submit again!</font>
+      </p>
+      <button class="button" id="testSubmit1"> Proceed to Game </button>
+      <button class="button" id="testInstruct1"> Read Instructions </button>
+    </div>
+
+  </div>
+
+
+
+  <!-- game1 -->
+
+
+  <div id="game1-div" class="wrapper" style="display: none;">
+    <h2 id="game1H" align="center">Rock, Paper, Scissors</h2>
+    <div id="game">
+      <h4 align="center" class="roundNumber"> Round : 1 </h4>
+      <div class="grid-container">
+        <div class="grid-item item1"> You </div>
+        <div class="grid-item item2">Wins</div>
+        <div class="grid-item item3">Ties</div>
+        <div class="grid-item item4">Losses</div>
+        <div class="grid-item item5"> Opponent</div>
+        <div class="grid-item weapons">
+          <div>
+            <input id="rock" type="button" name="weapon" value="rock" />
+            <label class="tools-cc rock" for="rock"></label>
+          </div>
+          <div>
+            <input id="paper" type="button" name="weapon" value="paper" />
+            <label class="tools-cc paper" for="paper"></label>
+          </div>
+          <div>
+            <input id="scissors" type="button" name="weapon" value="scissors" />
+            <label class="tools-cc scissors" for="scissors"></label>
+          </div>
+        </div>
+
+        <div class="grid-item wins"></div>
+        <div class="wins">0</div>
+        <div class="grid-item ties"></div>
+        <div class="ties">0</div>
+        <div class="grid-item losses">0</div>
+        <div class="losses">0</div>
+
+        <div class="grid-item item10">
+          <svg class="oppColor" height="50" width="50">
+            <circle cx="25" cy="20" r="18" stroke="black" stroke-width="3" />
+          </svg>
+        </div>
+        <div class="grid-item item11">
+          <br />
+          <br />
+          <img id="humanPlay" class="humanPlay" src="pics/rock.jpg">
+        </div>
+        <div class="grid-item display">
+          <br />
+          <div class="info"></div>
+          <div class="info2"></div>
+          <div class="results"></div>
+          <img class="outcome-icon" />
+          <div class="round-feedback-list">
+          </div>
+        </div>
+        <div class="grid-item item13">
+          <img id="computerPlay" class="computerPlay" src="pics/Rrock.jpg">
+        </div>
+      </div>
+      <br />
+    </div>
+  </div>
+
+  <!-- end of game 1 debrief  -->
+
+  <div id="debrief1-div" style="display: none;">
+    <h2 id="debrief1H" align="center">End of Game 1</h2>
+    <div class="text" id="debrief1score"></div>
+    <div class="wrapper">
+      <button class="button start-next" data-end="1" data-start="2">Start Game 2</button>
+    </div>
+  </div>
+
+  <!-- instructions game2  -->
+
+  <div id="instructions2-div" style="display: none;">
+    <h2 id="instruct2H" align="center">Instructions for Game 2</h2>
+    <div class="text">
+      <p>You are about to start playing the second game, called Water/Fire/Grass. You are the player on the left, and
+        you can select an action ("weapon") by clicking on one of the 3 icons representing water, fire or grass. Your
+        opponent on the right will simultaneously select an action ("weapon") of its choice, without knowing your chosen
+        action on that round. After both of you have made your choice, the outcome of the round will be displayed. You
+        can then choose your next action, until the end of the game after 50 rounds. The rules of the game are that
+        water beats fire (water extinguishes fire), fire beats grass (fire burns grass), and grass beats water (grass
+        soaks up water). This is also explained in the picture below. If you choose the same actions, the outcome of the
+        round is a registered as a tie and no points are gained. Your task in this game is to choose actions that beat
+        the action of your opponent add win as many points as possible.</p>
+      <p>
+        <img id="game2Rules" class="img" src="pics/game2Rules.jpg" width=50%>
+        <p>
+          You will play a total of 50 rounds of this game. Your score will be calculated at the end of the 50 rounds by
+          substracting the number of winning rounds from the number of losing rounds. Ties do not count in this.
+        </p>
+    </div>
+    <div class="wrapper">
+      <button class="button" id="instructions2"> Proceed </button>
+    </div>
+  </div>
+
+
+  <!-- Test for game 2  -->
+
+
+  <div id="test2-div" style="display: none;">
+    <h2 id="test2" align="center">Please Answer the following questions to proceed to the second game</h2>
+
+    <div class="slidecontainer">
+      <h4> How many rounds will be played in this game? </h4>
+      <input id="q4" type="number" class="inputTest" required=true>
+    </div>
+
+    <div class="slidecontainer">
+      <h4> Which action beats "water"?</h4>
+      <div class="styled-select grey semi-square">
+        <select id="q5" required=true>
+          <option value="water">water</option>
+          <option value="fire">fire</option>
+          <option value="grass">grass</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="slidecontainer">
+      <h4> If you think your opponent will play grass, what action should you take to win?</h4>
+      <div class="styled-select grey semi-square">
+        <select id="q6" required=true>
+          <option value="water">water</option>
+          <option value="fire">fire</option>
+          <option value="grass">grass</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="wrapper">
+      <p hidden style="color:red;" id="errorMsg2">Incorrect response. Please check your answers and submit again!</font>
+      </p>
+      <button class="button" id="testSubmit2"> Proceed to Game </button>
+      <button class="button" id="testInstruct2"> Read Instructions </button>
+    </div>
+
+  </div>
+
+  <!--                     game2                     -->
+
+  <div id="game2-div" class="wrapper" style="display: none;">
+    <h2 id="game2H" align="center">Game 2: Fire - Water - Grass</h2>
+    <div id="game">
+      <h4 align="center" class="roundNumber"> Round : 1 </h4>
+      <div class="grid-container">
+        <div class="grid-item item1"> You</div>
+        <div class="grid-item item2">Wins</div>
+        <div class="grid-item item3">Ties</div>
+        <div class="grid-item item4">Losses</div>
+        <div class="grid-item item5">Opponent</div>
+        <div class="grid-item weapons">
+          <div>
+            <input id="fire" type="button" name="weapon" value="fire" />
+            <label class="tools-cc fire" for="fire"></label>
+          </div>
+          <div>
+            <input id="water" type="button" name="weapon" value="water" />
+            <label class="tools-cc water" for="water"></label>
+          </div>
+          <div>
+            <input id="grass" type="button" name="weapon" value="grass" />
+            <label class="tools-cc grass" for="grass"></label>
+          </div>
+        </div>
+
+        <div class="grid-item wins"></div>
+        <div class="wins">0</div>
+        <div class="grid-item ties"></div>
+        <div class="ties">0</div>
+        <div class="grid-item losses">0</div>
+        <div class="losses">0</div>
+
+        <div class="grid-item item10">
+          <svg class="oppColor" height="50" width="50">
+            <circle cx="25" cy="20" r="18" stroke="black" stroke-width="3" fill={{colorfill}} />
+          </svg>
+        </div>
+        <div class="grid-item item11">
+          <img id="humanPlay2" class="humanPlay" src="pics/fire.jpg">
+        </div>
+        <div class="grid-item display">
+          <br />
+          <div class="info"></div>
+          <div class="info2"></div>
+          <div class="results"></div>
+          <img class="outcome-icon" />
+          <div class="round-feedback-list">
+          </div>
+        </div>
+        <div class="grid-item item13">
+          <img id="computerPlay2" class="computerPlay" src="pics/fire.jpg">
+        </div>
+      </div>
+      <br />
+    </div>
+  </div>
+
+  <!-- End of Trial2 Debrief  -->
+
+  <!-- End of Game 2 Debrief  -->
+
+  <div id="debrief2-div" style="display: none;">
+    <div class="text" id="debrief2score"></div>
+    <div class="wrapper">
+      <button class="button start-next" data-end="2" data-start="3">Start Game 3</button>
+    </div>
+  </div>
+
+
+
+  <!-- instructions 3-->
+
+
+  <div id="instructions3-div" style="display: none;">
+    <h2 id="instruct3H" align="center">Instructions for game 3</h2>
+    <div class="text">You are about to play the third game, called the Number game. You are the player on the left, and
+      you can choose an action by selecting a number from 1 to 5 on the left by clicking on
+      one of the icons. Your opponent on the right will simultaneously select a number of its choice, without knowledge
+      of your choice on that round. After both you and your opponent have made a choice, the outcome of the round will
+      be displayed. You can then choose your next action, until the end of the game after 50 rounds. The rules of the
+      game are that <strong> you win if you select a number that is exactly one higher than your opponent's choice. The
+        only exception is when the number chosen by either you or your opponent is 5. In this case the winning response
+        is 1 (1 beats 5 in this case)</strong>. For example, if your opponent selects 3, you will win that round only if
+      you select 4.
+      If the two numbers chosen are the same or the difference between them is larger than 1, then this is considered a
+      tie and none of you will gain any points. Your task in this game is to choose actions that beat the action of your
+      opponent and win as many points as possible. A summary of the rules of the game can be seen in the picture below.
+      <br />
+      <br />
+      <img id="game3Rules" class="img" src="pics/game3Rules.jpg">
+      <br />
+      <br />
+      <br />
+      You will play a total of 50 rounds of this game. Your score will be calculated at the end of the 50 rounds by
+      substracting the number of winning rounds from the number of losing rounds. Ties do not count in this.
+    </div>
+    <div class="wrapper">
+      <button class="button" id="instructions3"> Proceed </button>
+    </div>
+  </div>
+
+  <!-- Test for Game 3  -->
+
+
+  <div id="test3-div" style="display: none;">
+    <h2 id="test3" align="center">Please Answer the following questions to proceed to the first game</h2>
+
+    <div class="slidecontainer">
+      <h4> How many rounds will be played in this game? </h4>
+      <input id="q7" type="text" class="inputTest">
+    </div>
+
+    <div class="slidecontainer">
+      <h4> If you believe the Computer will choose number 2, what should your choice be to win the round? </h4>
+      <input id="q8" type="text" class="inputTest">
+    </div>
+
+    <div class="slidecontainer">
+      <h4> If you believe the Computer will choose number 5, what should your choice be to win the round?</h4>
+      <input id="q9" type="text" class="inputTest">
+    </div>
+
+    <div class="wrapper">
+      <p hidden style="color:red;" id="errorMsg3">Incorrect response. Please check your answers and submit again!</font>
+      </p>
+      <button class="button" id="testSubmit3"> Proceed to Game </button>
+      <button class="button" id="testInstruct3"> Read Instructions </button>
+    </div>
+
+  </div>
+
+  <!-- game3 -->
+
+
+  <div id="game3-div" style="display: none;">
+    <h2 id="game3H" align="center">Game 3 : Number Guessing</h2>
+    <div id="game">
+      <h4 align="center" class="roundNumber"> Round : 1 </h4>
+      <div class="grid-container">
+        <div class="grid-item item1"> You </div>
+        <div class="grid-item item2">Wins</div>
+        <div class="grid-item item3">Ties</div>
+        <div class="grid-item item4">Losses</div>
+        <div class="grid-item item5">Opponent</div>
+        <div class="grid-item weapons">
+          <div>
+            <input id="one" type="button" name="weapon" value="one" />
+            <label class="tools-cc one" for="one"></label>
+          </div>
+          <div>
+            <input id="two" type="button" name="weapon" value="two" />
+            <label class="tools-cc two" for="two"></label>
+          </div>
+          <div>
+            <input id="three" type="button" name="weapon" value="three" />
+            <label class="tools-cc three" for="three"></label>
+          </div>
+          <div>
+            <input id="four" type="button" name="weapon" value="four" />
+            <label class="tools-cc four" for="four"></label>
+          </div>
+          <div>
+            <input id="five" type="button" name="weapon" value="five" />
+            <label class="tools-cc five" for="five"></label>
+          </div>
+        </div>
+
+        <div class="grid-item wins"></div>
+        <div class="wins">0</div>
+        <div class="grid-item ties"></div>
+        <div class="ties">0</div>
+        <div class="grid-item losses">0</div>
+        <div class="losses">0</div>
+
+        <div class="grid-item item10">
+          <svg class="oppColor" height="50" width="50">
+            <circle cx="25" cy="20" r="18" stroke="black" stroke-width="3" fill={{colorfill}} />
+          </svg>
+        </div>
+        <div class="grid-item item11">
+          <img id="humanPlay3" class="humanPlay" src="pics/oneIcon.jpg">
+        </div>
+        <div class="grid-item display">
+          <br />
+          <div class="info"></div>
+          <div class="info2"></div>
+          <div class="results"></div>
+          <img class="outcome-icon" />
+          <div class="round-feedback-list">
+          </div>
+        </div>
+        <div class="grid-item item13">
+          <img id="computerPlay3" class="computerPlay" src="pics/oneIcon.jpg">
+        </div>
+      </div>
+      <br />
+    </div>
+  </div>
+
+  <!-- End of Trial 3 Debrief  -->
+
+  <div id="debrief3-div" style="display: none;">
+    <div class="text" id="debrief3score"></div>
+    <div class="wrapper">
+      <button class="button start-next" data-end="3" data-start="4">Start Game 4</button>
+    </div>
+  </div>
+
+
+  <!-- instructions 4-->
+  <div id="instructions4-div" style="display: none;">
+    <h2 id="instruct4H" align="center">Instructions for game 4</h2>
+    <div class="text">You are about to play the fourth game, called Shootout. You are the player on the left, and
+        you can select an action ("direction") by clicking on one of the 3 icons representing left, center or right. Your
+        opponent on the right will simultaneously select an action ("direction") of its choice, without knowing your chosen
+        action on that round. After both of you have made your choice, the outcome of the round will be displayed. You
+        can then choose your next action, until the end of the game after 50 rounds. The rules of the game are that you have to choose
+        a different direction than your oponent. If you choose the same direction, your oponent wins. Otherwise, you win.
+      <br />
+      <img id="game4Rules" class="img" src="pics/ball.png">
+      <br />
+      You will play a total of 50 rounds of this game. Your score will be calculated at the end of the 50 rounds by
+      substracting the number of winning rounds from the number of losing rounds. Ties do not count in this.
+    </div>
+    <div class="wrapper">
+      <button class="button" id="instructions4">Proceed</button>
+    </div>
+  </div>
+
+  <!-- Test for Game 4  -->
+  <div id="test4-div" style="display: none;">
+    <h2 id="test4" align="center">Please Answer the following questions to proceed to the first game</h2>
+
+    <div class="slidecontainer">
+      <h4> How many rounds will be played in this game? </h4>
+      <input id="q10" type="text" class="inputTest">
+    </div>
+
+    <div class="slidecontainer">
+      <h4>If you believe the computer will go to the right, what should your choise be to win the round?</h4>
+      <select id="q11" required>
+        <option value="right/left">Right or left</option>
+        <option value="right/center">Right or center</option>
+        <option value="left/center">Left or center</option>
+      </select>
+    </div>
+
+    <div class="slidecontainer">
+      <h4>If you believe the Computer will go to the center, what should your choice be to win the round?</h4>
+      <select id="q12" required>
+        <option value="right/left">Right or left</option>
+        <option value="right/center">Right or center</option>
+        <option value="left/center">Left or center</option>
+      </select>
+    </div>
+
+    <div class="wrapper">
+      <p hidden style="color:red;" id="errorMsg4">Incorrect response. Please check your answers and submit again!</font>
+      </p>
+      <button class="button" id="testSubmit4"> Proceed to Game </button>
+      <button class="button" id="testInstruct4"> Read Instructions </button>
+    </div>
+
+  </div>
+
+  <!-- Game 4 -->
+  <div id="game4-div" style="display: none;">
+    <h2 id="game4H" align="center">Game 4 : Shootout</h2>
+    <div id="game">
+      <h4 align="center" class="roundNumber"> Round : 1 </h4>
+      <div class="grid-container">
+        <div class="grid-item item1">You</div>
+        <div class="grid-item item2">Wins</div>
+        <div class="grid-item item4">Losses</div>
+        <div class="grid-item item5">Opponent</div>
+        <div class="grid-item weapons">
+          <div>
+            <input id="left" type="button" name="weapon" value="left">
+            <label class="tools-cc left" for="left"></label>
+          </div>
+          <div>
+            <input id="center" type="button" name="weapon" value="center">
+            <label class="tools-cc center" for="center"></label>
+          </div>
+          <div>
+            <input id="right" type="button" name="weapon" value="right">
+            <label class="tools-cc right" for="right"></label>
+          </div>
+        </div>
+
+        <div class="grid-item wins"></div>
+        <div class="wins">0</div>
+        <div class="grid-item losses">0</div>
+        <div class="losses">0</div>
+
+        <div class="grid-item item10">
+          <svg class="oppColor" height="50" width="50">
+            <circle cx="25" cy="20" r="18" stroke="black" stroke-width="3" fill={{colorfill}} />
+          </svg>
+        </div>
+        <div class="grid-item item11">
+          <img id="humanPlay4" class="humanPlay" src="pics/oneIcon.jpg">
+        </div>
+        <div class="grid-item display">
+          <br />
+          <div class="info"></div>
+          <div class="info2"></div>
+          <div class="results"></div>
+          <img class="outcome-icon" />
+          <div class="round-feedback-list">
+          </div>
+        </div>
+        <div class="grid-item item13">
+          <img id="computerPlay4" class="computerPlay" src="pics/oneIcon.jpg">
+        </div>
+      </div>
+      <br />
+    </div>
+  </div>
+
+  <!-- Debrief Page end of Experiment  -->
+
+  <div id="debrief4-div" style="display: none;">
+    <h2 align="center">End of Experiment</h2>
+    <div class="slidecontainer" id="debrief4score"></div>
+
+    <!-- first slider  -->
+    <div class="slidecontainer">
+      <h4>On a scale from 1 (Very easy) to 100 (very difficult): How difficult was it to figure out your opponent's
+        strategy?</h4>
+      <input type="range" min="1" max="100" value="50" class="slider" id="myRange1">
+      <p>Value: <span id="demo1"></span></p>
+    </div>
+    <!-- Second Slider  -->
+    <div class="slidecontainer">
+      <h4>On a scale from 1 (Not at all confident) to 100 (Very confident): How confident are you that you know your
+        opponent's strategy?</h4>
+      <input type="range" min="1" max="100" value="50" class="slider" id="myRange2">
+      <p>Value: <span id="demo2"></span></p>
+    </div>
+    <!-- Feedback -->
+    <div class="slidecontainer">
+      <h4> Please describe as accurately as you can what you believe your opponent's strategy in these games was</h4>
+      <input id="feedbackinput" type="text" class="feedbackinput">
+    </div>
+
+    <div class="wrapper">
+      <button class="button" id="endExp"> End Experiment </button>
+    </div>
+  </div>
+  <div id="prolific-div" style="display: none;">
+    <h4 id="prolificH" align="center">Please click below to register the end of your participation with prolific</h4>
+    <div class="slidecontainer">
+      <div class="wrapper">
+        <button class="button" id="prolificBtn">Prolific Completion</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="video-modal" class="modal">
+    <!-- Video will appear here -->
+  </div>
+
+  <script src="js/client.js"></script>
+  <div class="footer"> {{>footer}} </div>
+</body>
+
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+  <!-- script src = "/socket.io/socket.io.js"></script -->
+  <script src="js/libs/jquery-3.3.1.min.js"></script>
+  <script src="js/global.js"></script>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title></title>
+    <!-- h1 id="pageTitle" align = "center">The three Games online Experiment</h1 -->
+
+  </head>
+
+
+
+
+  <body>
+    <link rel="stylesheet" href="css/form.css">
+    <link rel="stylesheet" href="css/mystyle.css">
+    <link rel="stylesheet" href= "css/instructions.css">
+    <link rel="stylesheet" href= "css/consent.css">
+
+
+
+<div id="consent" class="consent-wrapper">
+  <div class="consent-content" style="width: 100%; text-align: left">
+    <div class="consent-header">
+      <img src="pics/uclBannerRed.jpg" style="position: relative; width: 100%; right: 0;">
+    </div>
+    <!-- div class="mdl-card__supporting-text" colour="red" -->
+      <div class="consent-details">
+        <ul>
+          <li><strong>Title of Study:</strong> The Investment Game</li>
+          <li><strong>Department:</strong> UCL Experimental Psychology</li>
+          <li><strong>Name and contact details of the researcher:</strong> Ismail Guennouni (i.guennouni.17@ucl.ac.uk)</li>
+          <li><strong>Name and contact details of the principal researcher:</strong> Maarten Speekenbrink (m.speekenbrink@ucl.ac.uk)</li>
+          <li><strong>Name and contact details of the UCL Data Protection Officer:</strong> Lee Shailer (data-protection@ucl.ac.uk)</li>
+          <li>This study has been approved by UCL Experimental Psychology Ethics Chair [Project ID: EP/2014/005]</li>
+        </ul>
+      </div>
+      <div class="consent-information-sheet">
+        <h4>Information about this study</h4>
+        <p>
+          You are invited to take part in a research project. Before you decide it is important for you to understand why the research is conducted
+          and what participation will involve. Please take time to read the following information carefully and discuss it with others if you wish.
+          Ask us if there is anything that is not clear or if you would like more information. Take time to decide whether or not you wish to take part.
+          Thank you for reading this and considering taking part in this research.
+        </p>
+
+        <h4>What is the project’s purpose?</h4>
+        <p>
+          This experiment investigates how people make decisions in games against a computer opponent.
+        </p>
+
+        <h4>Do I have to take part?</h4>
+        <p>
+          Your participation in this study is entirely voluntary. You can withdraw at any time without giving a reason.
+          If you decide to withdraw, you will not receive any payment for your participation.
+        </p>
+
+        <h4>What will happen to me if I take part?</h4>
+        <p>
+           In this study, you will play three online games against the same computer opponent.
+
+        </p>
+
+        <h4>What are the possible benefits of taking part?</h4>
+        <p>
+          You will be paid £2.5 for completing the experiment and in the game and can win up to an additional £3 bonus reward, depending on your performance.
+        </p>
+
+        <h4>What if something goes wrong?</h4>
+        <p>
+          Should this research give you any reason for a complaint, please contact the principal researcher, Dr Maarten Speekenbrink (m.speekenbrink@ucl.ac.uk)
+          in the first instance. Should you feel your complaint has not been handled to your satisfaction, you can contact the
+          Chair of the UCL Research Ethics Committee (ethics@ucl.ac.uk).
+        <p>
+
+        <h4>Will my taking part in this project be kept confidential?</h4>
+        <p>
+          All the information that we collect about you during the course of the research will be kept strictly confidential.
+          You will not be able to be identified in any ensuing reports or publications.
+        </p>
+
+        <h4>Limits to confidentiality</h4>
+        <p>
+          Confidentiality will be respected unless there are compelling and legitimate reasons for this to be breached.
+          If this was the case we would inform you of any decisions that might limit your confidentiality.
+        </p>
+
+        <h4>What will happen to the results of the research project?</h4>
+        <p>
+          The results of the research will be presented in a Master's thesis by the researcher, and potentially published in an article or other formats.
+          We expect the results of this research will be available by the end of 2018. If you'd like to receive a summary of the findings, you can contact
+          the researcher, Ismail Guennouni (i.guennouni.17@ucl.ac.uk). We will give these details again at the end of the experiment.
+        </p>
+        <p>
+          Anonymous data collected during the study may be made publically available on platforms such as the Open Science Framework (osf.io)
+          and GitHub (github.com). This data will not include information which would allow others to identify you.
+        </p>
+
+        <h4>Data Protection Privacy Notice</h4>
+        <p>
+          The data controller for this project will be University College London (UCL). The UCL Data Protection Office provides oversight of UCL activities
+          involving the processing of personal data and can be contacted at data-protection@ucl.ac.uk. UCL’s Data Protection Officer can also be contacted at
+          data-protection@ucl.ac.uk.
+        </p>
+        <p>
+          Your personal data will be processed for the purposes outlined in this notice.
+        </p>
+        <p>
+          The legal basis that would be used to process your personal data will be performance of a task in the public interest. The legal basis used to
+          process special category personal data will be for scientific and historical research or statistical purposes.
+        </p>
+        <p>
+          Your personal data will be processed so long as it is required for the research project. If we are able to anonymise or pseudonymise the personal data
+          you provide we will undertake this and will endeavour to minimise the processing of personal data wherever possible.
+        </p>
+        <p>If you are concerned about how your personal data is being processed, please contact UCL in the first instance at data-protection@ucl.ac.uk.
+          If you remain unsatisfied, you may wish to contact the Information Commissioner’s Office (ICO). Contact details and details of data subject rights
+          are available on the ICO website at: https://ico.org.uk/for-organisations/data-protection-reform/overview-of-the-gdpr/individuals-rights/
+        </p>
+      </div>
+      <div class="consent_informed_consent">
+        <p>
+          If you have any questions concerning the research, please contact the researchers before proceeding.
+          We advise you to make a copy of this information and the consent form below to keep and refer to at any time.
+        </p>
+        <p>
+          <strong>I confirm that I understand that by ticking each box below I am consenting to this element of the study.
+            I understand that it will be assumed that unticked boxes mean that I do not consent to that part of the study.
+            I understand that by not giving consent for any one element that I am ineligible to participate in the study.
+          </strong>
+        </p>
+      </div>
+    <!-- /div -- >
+    <!-- div class="mdl-card__actions" style="width: 95%" -->
+      <div class="consent-informed-consent-statements">
+        <p>
+          <label><input type="checkbox" id="consent_check1" class="consent-checkbox" />
+          I confirm that I have read and understood the information for this study given to me above.
+          I have had an opportunity to consider the information and what will be expected of me.
+          I have also had the opportunity to ask questions which have been answered to my satisfaction.
+          </label>
+        </p>
+        <p>
+          <label><input type="checkbox" id="consent_check2" class="consent-checkbox" />
+          I understand that I will be able to withdraw my data up to 7 days after completing the experiment.
+          </label>
+        </p>
+        <p>
+          <label><input type="checkbox" id="consent_check3" class="consent-checkbox" />
+            I consent to the processing of my personal information for the purposes explained to me.
+            I understand that such information will be handled in accordance with all applicable data protection
+            legislation.
+          </label>
+        </p>
+        <p>
+          <label><input type="checkbox" id="consent_check4" class="consent-checkbox" />
+            I understand that my data gathered in this study will be stored anonymously and securely.
+            It will not be possible to identify me in any publications.
+          </label>
+        </p>
+        <p>
+          <label><input type="checkbox" id="consent_check5" class="consent-checkbox" />
+            I understand that my information may be subject to review by responsible individuals from the University
+            for monitoring and audit purposes.
+          </label>
+        </p>
+        <p>
+          <label><input type="checkbox" id="consent_check6" class="consent-checkbox" />
+          I understand that my participation is voluntary and that I am free to withdraw at any time without
+          giving a reason. I understand that if I decide to withdraw, I will not receive any payment for my participation and
+          any personal data I have provided up to that point will be deleted unless I agree otherwise.
+        </label>
+        </p>
+        <p>
+          <label><input type="checkbox" id="consent_check7" class="consent-checkbox" />
+          I understand that I will be paid £2.5 for my participation and can earn up to £3 additionally, depending
+          on my and other player's performance in the game. I understand that if another player withdraws from the
+          study during the game, I and any other remaining players will not be able to finish the game.
+        </label>
+        </p>
+        <p>
+          <label><input type="checkbox" id="consent_check8" class="consent-checkbox" />
+          I understand that the data will not be made available to any commercial organisations but is solely
+          the responsibility of the researcher(s) undertaking this study.
+        </label>
+        </p>
+        <p>
+          <label><input type="checkbox" id="consent_check9" class="consent-checkbox" />
+          I agree that my anonymised research data may be used by others for future research.
+          No one will be able to identify me when this data is shared.
+        </label>
+        </p>
+        <p>
+          <label><input type="checkbox" id="consent_check10" class="consent-checkbox" />
+          I understand that the information I have submitted may be published as a report.
+        </label>
+        </p>
+        <p>
+          <label><input type="checkbox" id="consent_check11" class="consent-checkbox" />
+          I hereby confirm that I understand the exclusion criteria as detailed above and
+          I do not fall under the exclusion criteria.
+        </label>
+        </p>
+        <p>
+           <label><input type="checkbox" id="consent_check12" class="consent-checkbox" />
+           I am aware of who I should contact if I wish to lodge a complaint.
+         </label>
+        </p>
+        <p>
+          <label><input type="checkbox" id="consent_check13" class="consent-checkbox" />
+          I voluntarily agree to take part in this study.
+        </label>
+        </p>
+        <div class="wrapper">
+          <button id="consent_continue" class="button" >continue</button>
+        </div>
+      </div>
+    <!-- /div -->
+  </div>
+</div>
+
+
+<script type="text/javascript">
+var check_consent = function() {
+        if(_DEBUG) return true;
+        if ($('#consent_check1').is(':checked') &&
+            $('#consent_check2').is(':checked') &&
+            $('#consent_check3').is(':checked') &&
+            $('#consent_check4').is(':checked') &&
+            $('#consent_check5').is(':checked') &&
+            $('#consent_check6').is(':checked') &&
+            $('#consent_check7').is(':checked') &&
+            $('#consent_check8').is(':checked') &&
+            $('#consent_check9').is(':checked') &&
+            $('#consent_check10').is(':checked') &&
+            $('#consent_check11').is(':checked') &&
+            $('#consent_check12').is(':checked') &&
+            $('#consent_check13').is(':checked')) {
+          return true;
+        }
+        else {
+          alert("If you wish to participate, you must agree to all the statements by checking the boxes next to the statements");
+          return false;
+        }
+        return false;
+      };
+
+      document.getElementById("consent_continue").onclick = function () {
+        if(check_consent()) {
+              location.href = "experiment";
+          }
+        };
+
+</script>
+
+
+
+<div class="footer"> {{>footer}} </div>
+</body>
+</html>

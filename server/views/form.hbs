@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  {{>header}}
+  <body id="form">
+    <link rel="stylesheet" href="css/form.css">
+    <form id= "user-form" class="form1" action="">
+      <!-- action above is "" but we can define a file to which to save data from form -->
+
+			<label for="firstName" class="first-name">First Name</label>
+			<input id="firstName" name="prenom" type="text">
+
+			<label for="lastName" class="last-name">Last Name</label>
+			<input id="lastName" type="text">
+
+			<label for="gender">Gender</label>
+			<input id="gender" type="text">
+
+			<label for="age">Age</label>
+			<input id="age" type="number">
+
+			<label for="email">Email</label>
+			<input id="email" type="email">
+
+			<button>Submit</button>
+		</form>
+    <div class="footer"> {{>footer}} </div>
+    <script src = "/socket.io/socket.io.js"></script>
+    <script src="/js/libs/jquery-3.3.1.min.js"></script>
+    <script src="/js/client.js"></script>
+  </body>
+</html>

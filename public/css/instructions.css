@@ -1,0 +1,47 @@
+body {
+  position: relative;
+  margin: 0;
+  padding-bottom: 6rem;
+  min-height: 100%;
+}
+.text {
+  background-color: rgba(255, 255, 255, 0.9);
+  width: auto;
+  border: 5px solid black;
+  padding: 50px;
+  margin: 40px;
+}
+.text img {
+  max-width: 50%;
+  max-height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.wrapper {
+  text-align: center;
+}
+.button {
+  background: lightgrey;
+  padding: 0.7em;
+  padding: 25px;
+  margin: 20px;
+  width: 150px;
+  border: 0;
+  display: inline-block;
+  cursor: pointer;
+}
+.button:hover {
+  background: gold;
+}
+.footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 0.2rem;
+  background-color: #efefef;
+  text-align: center;
+}
